@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*- 
 """Created on Sat Sep 17 11:00:00 2022"""
 __author__ = "Maria Nybo"
 __email__ = "brukenavn@nmbu.no"
