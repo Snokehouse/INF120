@@ -4,24 +4,14 @@ __author__ = "Maria Nybo"
 __email__ = "brukenavn@nmbu.no"
 
 #Funksjon for å "vaske" input slik at det kun er mulig å registrere tall
-def check_antall():
+def check_input(type):
     while True:
         try:
-            antall = float(input("Antall: "))
+            output = float(input(type + ": "))
             break
         except:
-            print('Du må angi ett tall for "Antall".')
-    return antall
-
-#Funksjon for å "vaske" input slik at det kun er mulig å registrere tall
-def check_stykkpris():
-    while True:
-        try:
-            stykkpris = float(input("Pris: "))
-            break
-        except:
-            print('Du må angi ett tall for "Pris".')
-    return stykkpris
+            print('Du må angi ett tall for ' + type +'.')
+    return output
 
 #Funksjon for å registrere Vare, antall og prisen per vare.
 #Benytter en rekursiv funksjon istedet for å bruke en loop for å legge til så mange varer man skulle ønske
@@ -31,8 +21,8 @@ def innlesning(vareliste = []):
     varenavn = input("Vare beskrivelse: ")
     if not varenavn:
         return vareliste
-    antall = check_antall()
-    stykkpris = check_stykkpris()
+    antall = check_input("Antall")
+    stykkpris = check_input("Pris")
     innlest_verdi = tuple((varenavn, antall, stykkpris))
     vareliste.append(innlest_verdi)
     output = innlesning(vareliste)
