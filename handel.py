@@ -6,11 +6,16 @@ __email__ = "brukenavn@nmbu.no"
 #Funksjon for å "vaske" input slik at det kun er mulig å registrere tall.
 def check_input(type):
     while True:
+        #Try forsøker å kjøre kode, i dette tilfellet forsøker den å kjøre funksjonen "input()".
         try:
             output = float(input(type + ": "))
+            #Om det ikke kommer noe feilmelding(brukeren har skrevet inn et gyldig tall), 
+            #vil vi pause while loopen og trigge returneringen ut av funksjonen som stopper funksjonen og returnerer inputtet brukeren skrev inn.
             break
+        #Hvis "input()" får en feilmelding blir den fanget opp her og printer at det har skjedd en feil
         except:
             print('Du må angi ett tall for ' + type +'.')
+        #Når det er printet at vi har fått en feil så vil while loopen fortsette fra top til bunn igjen.
     return output
 
 #Funksjon for å registrere Vare, antall og prisen per vare.
