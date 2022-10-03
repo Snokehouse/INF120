@@ -25,6 +25,7 @@ def innlesning(vareliste = []):
     stykkpris = check_input("Pris")
     innlest_verdi = tuple((varenavn, antall, stykkpris))
     vareliste.append(innlest_verdi)
+    #Her vil funksjonen fortsette videre for å legge til neste vare ved å starte funksjonen på nytt. Vi tar vare på "varelisten" så den ikke blir borte i den rekursive funksjonen.
     output = innlesning(vareliste)
     return output
 
