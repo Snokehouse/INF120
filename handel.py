@@ -19,6 +19,7 @@ def check_input(type):
 def innlesning(vareliste = []):
     print("Registrer ditt input, registrer blankt for å avslutte.")
     varenavn = input("Vare beskrivelse: ")
+    #Lagt inn muligheten til å avslutte funksjonen tidlig om brukeren ikke har flere varer å legge inn.
     if not varenavn:
         return vareliste
     antall = check_input("Antall")
