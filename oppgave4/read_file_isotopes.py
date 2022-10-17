@@ -3,7 +3,6 @@
 __author__ = "fornavn etternavn"
 __email__ = "brukernavn@nmbu.no"
 
-
 def readFile(dataLabels = [], dataValues = []):
     temp = []
     try:
@@ -15,12 +14,30 @@ def readFile(dataLabels = [], dataValues = []):
         print("Fikk ikke åpnet fil...")
     for index, x in enumerate(temp):
         if index == 0:
-            dataLabels.append(temp[index])
+            dataLabels = temp[index]
         else:
-            dataValues.append(temp[index])
-    return dataLabels, dataValues
+            dataValues.append(list(temp[index]))
+    utskriftAvFil(dataLabels, dataValues)
+    return
 
-dataInput = readFile()
+def kalkulasjon_av_molarMasse(data):
+    output = 0
+    for a, b, c in data:
+        output += (float(b)*float(c))
+    return output
 
-print(dataInput[0])
-print(dataInput[1])
+def utskriftAvFil(labels, data):
+    a, b, c = labels
+    printLine = "| " + str(a) + " | " + str(b) + " | " + str(c) + " |"
+    print("________________________________________________")
+    print(printLine)
+    print("________________________________________________")
+    for x in data:
+        a, b, c = x
+        printLine = "| " + str(a) + "   |     " + str(b) + "   |       " + str(c) + "     |"
+        print(printLine)
+        print("________________________________________________")
+
+    print("\n\nIsotopens molekulære masse er: " + str(kalkulasjon_av_molarMasse(data)) + "g/mol.\n")
+
+readFile()
