@@ -4,17 +4,23 @@ __author__ = "fornavn etternavn"
 __email__ = "brukernavn@nmbu.no"
 
 
-dataInput = []
-
-def readFile():
+def readFile(dataLabels = [], dataValues = []):
+    temp = []
     try:
         f = open("Oxygen.txt", "r")
         for x in f:
-            temp = x.split("\t")
-            dataInput.append(temp)
+            temp.append(x.rstrip("\n").split("\t"))
         f.close()
     except:
         print("Fikk ikke åpnet fil...")
+    for index, x in enumerate(temp):
+        if index == 0:
+            dataLabels.append(temp[index])
+        else:
+            dataValues.append(temp[index])
+    return dataLabels, dataValues
 
-readFile()
-print(dataInput)
+dataInput = readFile()
+
+print(dataInput[0])
+print(dataInput[1])
